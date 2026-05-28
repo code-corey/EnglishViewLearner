@@ -85,15 +85,63 @@ python extension/scripts/export_store_uploads.py
 
 均为 **无透明通道** 的 JPEG/PNG，符合商店「24 位 PNG / JPEG」要求。
 
-源文件（含透明，仅供编辑）：
+---
 
-| 文件 | 用途 |
-|------|------|
-| `screenshot-1-page.png` | 网页替换效果 |
-| `screenshot-2-popup.png` | 弹窗设置 |
-| `screenshot-3-panel.png` | 悬浮抽屉 |
-| `promo-tile-440x280.png` | 小宣传图 |
-| `promo-marquee-1400x560.png` | 大宣传图 |
+### 商店图标（128×128）
+
+![商店图标 128x128](../pic/store/upload/store-icon-128x128.png)
+
+路径：`pic/store/upload/store-icon-128x128.png`
+
+---
+
+### 屏幕截图（1280×800）
+
+**1. 网页替换效果**
+
+![屏幕截图：网页替换效果](../pic/store/upload/screenshot-1-page-1280x800.jpg)
+
+路径：`pic/store/upload/screenshot-1-page-1280x800.jpg`
+
+**2. 弹窗设置**
+
+![屏幕截图：弹窗设置](../pic/store/upload/screenshot-2-popup-1280x800.jpg)
+
+路径：`pic/store/upload/screenshot-2-popup-1280x800.jpg`
+
+**3. 悬浮抽屉**
+
+![屏幕截图：悬浮抽屉](../pic/store/upload/screenshot-3-panel-1280x800.jpg)
+
+路径：`pic/store/upload/screenshot-3-panel-1280x800.jpg`
+
+---
+
+### 小型宣传图块（440×280）
+
+![小型宣传图块 440x280](../pic/store/upload/promo-small-440x280.jpg)
+
+路径：`pic/store/upload/promo-small-440x280.jpg`
+
+---
+
+### 顶部宣传图块（1400×560）
+
+![顶部宣传图块 1400x560](../pic/store/upload/promo-marquee-1400x560.jpg)
+
+路径：`pic/store/upload/promo-marquee-1400x560.jpg`
+
+---
+
+### 源文件（含透明，仅供编辑）
+
+| 文件 | 用途 | 预览 |
+|------|------|------|
+| `screenshot-1-page.png` | 网页替换效果 | ![](../pic/store/screenshot-1-page.png) |
+| `screenshot-2-popup.png` | 弹窗设置 | ![](../pic/store/screenshot-2-popup.png) |
+| `screenshot-3-panel.png` | 悬浮抽屉 | ![](../pic/store/screenshot-3-panel.png) |
+| `promo-tile-440x280.png` | 小宣传图 | ![](../pic/store/promo-tile-440x280.png) |
+| `promo-marquee-1400x560.png` | 大宣传图 | ![](../pic/store/promo-marquee-1400x560.png) |
 
 ---
 
