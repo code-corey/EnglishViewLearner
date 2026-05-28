@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "NeonLingo 本地增强版",
+  "name": "沉浸式学习英语",
   "version": "1.0.0",
-  "description": "按英语等级替换中文网页中的词汇",
+  "description": "按英语等级沉浸式替换中文网页中的词汇",
   "permissions": ["storage", "activeTab"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "NeonLingo"
+    "default_title": "沉浸式学习英语"
   },
   "content_scripts": [
     {

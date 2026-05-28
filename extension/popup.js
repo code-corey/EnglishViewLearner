@@ -1,6 +1,5 @@
 const levelSelect = document.getElementById('levelSelect');
-const toggleBtn = document.getElementById('toggleBtn');
-const statusIndicator = document.getElementById('statusIndicator');
+const toggleSwitch = document.getElementById('toggleSwitch');
 const statusText = document.getElementById('statusText');
 const replaceCountEl = document.getElementById('replaceCount');
 const highestLevelEl = document.getElementById('highestLevel');
@@ -112,14 +111,8 @@ async function loadSettings() {
 }
 
 function updateToggleUI() {
-  if (isEnabled) {
-    statusIndicator.className = 'indicator indicator-on';
-    statusText.textContent = '已启用';
-    toggleBtn.textContent = '禁用';
-  } else {
-    statusIndicator.className = 'indicator indicator-off';
-    statusText.textContent = '已禁用';
-    toggleBtn.textContent = '启用';
+  if (toggleSwitch) {
+    toggleSwitch.checked = isEnabled;
   }
 }
 
@@ -158,8 +151,8 @@ colorPicker.addEventListener('input', (event) => {
   saveUnderlineColor(event.target.value);
 });
 
-toggleBtn.addEventListener('click', async () => {
-  isEnabled = !isEnabled;
+toggleSwitch.addEventListener('change', async () => {
+  isEnabled = toggleSwitch.checked;
   await chrome.storage.local.set({ isEnabled });
   updateToggleUI();
   await sendToPage({ type: 'REFRESH' });

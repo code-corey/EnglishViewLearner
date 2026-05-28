@@ -432,7 +432,7 @@
           </select>
         </div>
       </div>
-      <button type="button" class="neon-lingo-fab-trigger" aria-label="NeonLingo">
+      <button type="button" class="neon-lingo-fab-trigger" aria-label="沉浸式学习英语">
         <span class="neon-lingo-fab-logo">
           <span class="neon-lingo-fab-n">E</span>
           <span class="neon-lingo-fab-check" aria-hidden="true">✓</span>
