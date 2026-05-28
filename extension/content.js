@@ -434,7 +434,7 @@
       </div>
       <button type="button" class="neon-lingo-fab-trigger" aria-label="NeonLingo">
         <span class="neon-lingo-fab-logo">
-          <span class="neon-lingo-fab-n">N</span>
+          <span class="neon-lingo-fab-n">E</span>
           <span class="neon-lingo-fab-check" aria-hidden="true">✓</span>
         </span>
         <span class="neon-lingo-fab-count">0</span>
