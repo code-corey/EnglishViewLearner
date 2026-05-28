@@ -22,6 +22,14 @@ GitHub：https://github.com/code-corey/EnglishViewLearner
 3. 点击「加载已解压的扩展程序」
 4. 选择本仓库中的 `extension` 目录
 
+## 上架 Chrome 网上应用店
+
+1. 生成图标并打包：`powershell -File scripts/package-store.ps1`
+2. 上传 `dist/immersive-english-v1.0.0.zip` 到 [开发者控制台](https://chrome.google.com/webstore/devconsole)
+3. 商店文案与隐私政策见 `docs/store-listing.md`、`docs/privacy.html`
+
+GitHub：https://github.com/code-corey/EnglishViewLearner
+
 ## 使用
 
 1. 点击工具栏「沉浸式学习英语」图标打开弹窗

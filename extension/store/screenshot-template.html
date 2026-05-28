@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>商店截图模板 - 沉浸式学习英语</title>
+  <link rel="stylesheet" href="../popup.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 1280px;
+      height: 800px;
+      background: linear-gradient(135deg, #1a1a1e 0%, #2d2d35 50%, #1f2937 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px;
+    }
+    .promo-text {
+      flex: 1;
+      color: #fff;
+      max-width: 520px;
+    }
+    .promo-text h1 {
+      font-size: 42px;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .promo-text p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+    .promo-text ul {
+      color: rgba(255,255,255,0.72);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .promo-badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(233, 30, 140, 0.2);
+      border: 1px solid rgba(233, 30, 140, 0.45);
+      color: #f0abfc;
+      font-size: 14px;
+    }
+    .popup-wrap {
+      flex-shrink: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+    }
+    .popup-wrap body {
+      width: 320px;
+      min-height: 480px;
+    }
+    .demo-page {
+      position: absolute;
+      right: 80px;
+      bottom: 60px;
+      background: #fff;
+      color: #333;
+      padding: 20px 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      font-size: 18px;
+      line-height: 2;
+      max-width: 360px;
+    }
+    .demo-page .hl {
+      border-bottom: 2px solid #b794f6;
+      margin-inline: 0.12em;
+    }
+    .canvas {
+      position: relative;
+      width: 1280px;
+      height: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="promo-text">
+      <h1>沉浸式学习英语</h1>
+      <p>浏览中文网页，按 CEFR 等级自动替换为英文词汇。</p>
+      <ul>
+        <li>本地词库，离线可用</li>
+        <li>A1～C1 等级可选</li>
+        <li>悬停查看中文原文</li>
+      </ul>
+      <span class="promo-badge">Chrome / Edge 扩展</span>
+    </div>
+
+    <div class="popup-wrap">
+      <div style="width:320px;background:#26262a;">
+        <header class="header">
+          <span class="header-logo"><span class="header-logo-letter">E</span></span>
+          <h1>沉浸式学习英语</h1>
+        </header>
+        <main style="padding:14px 16px;">
+          <section class="section">
+            <div class="status-row">
+              <span>是否打开功能</span>
+              <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-switch-slider"></span></label>
+            </div>
+          </section>
+          <section class="section">
+            <div class="status-row">
+              <span>仅当前等级</span>
+              <label class="toggle-switch"><input type="checkbox" disabled><span class="toggle-switch-slider"></span></label>
+            </div>
+          </section>
+          <section class="section">
+            <div class="drawer-row">
+              <span class="drawer-label">翻译等级</span>
+              <select class="select" disabled><option>B1</option></select>
+            </div>
+          </section>
+          <section class="section">
+            <div class="stats-box">
+              <div>已替换: <strong>23</strong> 个单词</div>
+              <div>最高等级: <strong>B1</strong></div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <div class="demo-page">
+      这是一个 <span class="hl">apple</span>，非常 <span class="hl">important</span>。
+    </div>
+  </div>
+</body>
+</html>
