@@ -38,6 +38,7 @@ Get-ChildItem $extDir -Force | ForEach-Object {
         if ($rel -eq ($pattern -replace '\\', '/').Split('/')[-1] -and $_.PSIsContainer -eq $false) { $skip = $true; break }
     }
     if ($rel -eq 'scripts' -or $rel -eq 'store') { return }
+    if ($skip) { return }
     Copy-Item $_.FullName -Destination (Join-Path $temp $rel) -Recurse -Force
 }
 
