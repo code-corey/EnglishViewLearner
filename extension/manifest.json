@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "NeonLingo 本地增强版",
+  "version": "1.0.0",
+  "description": "按英语等级替换中文网页中的词汇",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NeonLingo"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["injected.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["dict/graded_dict.json", "panel.html", "popup.css", "popup.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

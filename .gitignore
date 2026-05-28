@@ -1,0 +1,13 @@
+# Downloaded dictionary sources (re-fetch via scripts)
+extension/scripts/cedict_ts.u8
+
+# Python
+__pycache__/
+*.py[cod]
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log

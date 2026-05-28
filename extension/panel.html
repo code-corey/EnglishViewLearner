@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320">
+  <title>NeonLingo</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="embedded-panel">
+  <header class="header">
+    <span class="logo">🧠</span>
+    <h1>NeonLingo</h1>
+  </header>
+
+  <main>
+    <section class="section">
+      <label class="label" for="levelSelect">📖 翻译等级</label>
+      <select id="levelSelect" class="select">
+        <option value="A1">A1 (入门)</option>
+        <option value="A2">A2 (初级)</option>
+        <option value="B1" selected>B1 (中级)</option>
+        <option value="B2">B2 (中高级)</option>
+        <option value="C1">C1 (高级)</option>
+      </select>
+    </section>
+
+    <section class="section">
+      <div class="label">🎨 下划线颜色</div>
+      <div class="color-presets" id="colorPresets"></div>
+      <div class="color-custom">
+        <input type="color" id="colorPicker" class="color-input" value="#b794f6" aria-label="自定义下划线颜色">
+        <span class="color-value" id="colorValue">#B794F6</span>
+      </div>
+      <div class="color-preview">
+        预览：<span class="preview-sample" id="colorPreview">apple</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="label">⚙️ 状态</div>
+      <div class="status-row">
+        <span id="statusIndicator" class="indicator indicator-on"></span>
+        <span id="statusText">已启用</span>
+        <button id="toggleBtn" type="button" class="btn btn-outline">禁用</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="label">📊 本页统计</div>
+      <div class="stats-box">
+        <div>已替换: <strong id="replaceCount">0</strong> 个单词</div>
+        <div>最高等级: <strong id="highestLevel">—</strong></div>
+      </div>
+    </section>
+
+    <section class="tip">
+      💡 鼠标悬停在英文单词上可查看中文原文
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>v1.0.0</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>
