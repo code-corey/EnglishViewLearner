@@ -97,6 +97,10 @@
   justify-content: space-between;
   gap: 12px;
   min-height: 36px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
 }
 
 .neon-lingo-drawer-row + .neon-lingo-drawer-row {
@@ -153,12 +157,12 @@
 }
 
 .neon-lingo-fab-level {
-  min-width: 72px;
+  min-width: 108px;
   padding: 6px 28px 6px 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.28);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.28);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
   cursor: pointer;
   appearance: none;
@@ -170,6 +174,11 @@
 .neon-lingo-fab-level:focus {
   outline: none;
   border-color: rgba(233, 30, 140, 0.6);
+}
+
+.neon-lingo-fab-level option {
+  background: #26262a;
+  color: #fff;
 }
 
 .neon-lingo-fab-trigger {

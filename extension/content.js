@@ -22,6 +22,7 @@
   let userLevel = 'B1';
   let userLevelIndex = 3;
   let isEnabled = true;
+  let currentLevelOnly = false;
   let underlineColor = DEFAULT_UNDERLINE_COLOR;
   let replaceCount = 0;
   let highestLevelIndex = 0;
@@ -140,6 +141,9 @@
     if (isSingleCharWord(word)) return false;
     const wordLevelIndex = LEVEL_INDEX[entry.level];
     if (!wordLevelIndex) return false;
+    if (currentLevelOnly) {
+      return wordLevelIndex === userLevelIndex;
+    }
     return wordLevelIndex <= userLevelIndex;
   }
 
@@ -392,6 +396,7 @@
 
     const check = fabRoot.querySelector('.neon-lingo-fab-check');
     const toggle = fabRoot.querySelector('.neon-lingo-fab-toggle');
+    const levelOnlyToggle = fabRoot.querySelector('.neon-lingo-fab-level-only');
     const levelSelect = fabRoot.querySelector('.neon-lingo-fab-level');
 
     if (check) {
@@ -399,6 +404,9 @@
     }
     if (toggle) {
       toggle.checked = isEnabled;
+    }
+    if (levelOnlyToggle) {
+      levelOnlyToggle.checked = currentLevelOnly;
     }
     if (levelSelect && levelSelect.value !== userLevel) {
       levelSelect.value = userLevel;
@@ -418,6 +426,13 @@
           <span class="neon-lingo-drawer-label">是否打开功能</span>
           <label class="neon-lingo-switch">
             <input type="checkbox" class="neon-lingo-fab-toggle" checked>
+            <span class="neon-lingo-switch-slider"></span>
+          </label>
+        </div>
+        <div class="neon-lingo-drawer-row">
+          <span class="neon-lingo-drawer-label">仅当前等级</span>
+          <label class="neon-lingo-switch">
+            <input type="checkbox" class="neon-lingo-fab-level-only">
             <span class="neon-lingo-switch-slider"></span>
           </label>
         </div>
@@ -443,6 +458,7 @@
 
     const drawer = fabRoot.querySelector('.neon-lingo-fab-drawer');
     const toggle = fabRoot.querySelector('.neon-lingo-fab-toggle');
+    const levelOnlyToggle = fabRoot.querySelector('.neon-lingo-fab-level-only');
     const levelSelect = fabRoot.querySelector('.neon-lingo-fab-level');
 
     fabRoot.addEventListener('mouseenter', () => {
@@ -470,6 +486,13 @@
       if (isEnabled) start();
     });
 
+    levelOnlyToggle.addEventListener('change', async () => {
+      currentLevelOnly = levelOnlyToggle.checked;
+      await chrome.storage.local.set({ currentLevelOnly });
+      updateFabState();
+      if (isEnabled) start();
+    });
+
     document.documentElement.appendChild(fabRoot);
     updateFabState();
     updateFabCount();
@@ -479,6 +502,7 @@
     userLevel = settings.userLevel || 'B1';
     userLevelIndex = LEVEL_INDEX[userLevel] || 3;
     isEnabled = settings.isEnabled !== false;
+    currentLevelOnly = settings.currentLevelOnly === true;
     applyUnderlineColor(settings.underlineColor || DEFAULT_UNDERLINE_COLOR);
     updateFabState();
   }
@@ -544,10 +568,13 @@
     if (changes.isEnabled !== undefined) {
       isEnabled = changes.isEnabled.newValue !== false;
     }
+    if (changes.currentLevelOnly !== undefined) {
+      currentLevelOnly = changes.currentLevelOnly.newValue === true;
+    }
     if (changes.underlineColor) {
       applyUnderlineColor(changes.underlineColor.newValue);
     }
-    if (changes.userLevel || changes.isEnabled !== undefined) {
+    if (changes.userLevel || changes.isEnabled !== undefined || changes.currentLevelOnly !== undefined) {
       updateFabState();
       if (isEnabled) {
         start();

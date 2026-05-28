@@ -1,5 +1,6 @@
 const levelSelect = document.getElementById('levelSelect');
 const toggleSwitch = document.getElementById('toggleSwitch');
+const levelOnlySwitch = document.getElementById('levelOnlySwitch');
 const statusText = document.getElementById('statusText');
 const replaceCountEl = document.getElementById('replaceCount');
 const highestLevelEl = document.getElementById('highestLevel');
@@ -22,6 +23,7 @@ const PRESET_COLORS = [
 ];
 
 let isEnabled = true;
+let currentLevelOnly = false;
 let underlineColor = DEFAULT_UNDERLINE_COLOR;
 
 async function getActiveTab() {
@@ -101,9 +103,10 @@ async function saveUnderlineColor(color) {
 }
 
 async function loadSettings() {
-  const data = await chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor']);
+  const data = await chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor', 'currentLevelOnly']);
   const userLevel = data.userLevel || 'B1';
   isEnabled = data.isEnabled !== false;
+  currentLevelOnly = data.currentLevelOnly === true;
 
   levelSelect.value = userLevel;
   updateColorUI(data.underlineColor || DEFAULT_UNDERLINE_COLOR);
@@ -113,6 +116,9 @@ async function loadSettings() {
 function updateToggleUI() {
   if (toggleSwitch) {
     toggleSwitch.checked = isEnabled;
+  }
+  if (levelOnlySwitch) {
+    levelOnlySwitch.checked = currentLevelOnly;
   }
 }
 
@@ -154,6 +160,14 @@ colorPicker.addEventListener('input', (event) => {
 toggleSwitch.addEventListener('change', async () => {
   isEnabled = toggleSwitch.checked;
   await chrome.storage.local.set({ isEnabled });
+  updateToggleUI();
+  await sendToPage({ type: 'REFRESH' });
+  refreshStats();
+});
+
+levelOnlySwitch.addEventListener('change', async () => {
+  currentLevelOnly = levelOnlySwitch.checked;
+  await chrome.storage.local.set({ currentLevelOnly });
   updateToggleUI();
   await sendToPage({ type: 'REFRESH' });
   refreshStats();

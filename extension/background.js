@@ -1,5 +1,6 @@
 const DEFAULT_LEVEL = 'B1';
 const DEFAULT_ENABLED = true;
+const DEFAULT_CURRENT_LEVEL_ONLY = false;
 const DEFAULT_UNDERLINE_COLOR = '#b794f6';
 
 let gradedDict = null;
@@ -23,11 +24,12 @@ async function loadDictionary() {
 }
 
 chrome.runtime.onInstalled.addListener(async () => {
-  const stored = await chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor']);
+  const stored = await chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor', 'currentLevelOnly']);
   const updates = {};
   if (!stored.userLevel) updates.userLevel = DEFAULT_LEVEL;
   if (stored.isEnabled === undefined) updates.isEnabled = DEFAULT_ENABLED;
   if (!stored.underlineColor) updates.underlineColor = DEFAULT_UNDERLINE_COLOR;
+  if (stored.currentLevelOnly === undefined) updates.currentLevelOnly = DEFAULT_CURRENT_LEVEL_ONLY;
   if (Object.keys(updates).length > 0) {
     await chrome.storage.local.set(updates);
   }
@@ -49,12 +51,13 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   }
 
   if (message.type === 'GET_SETTINGS') {
-    chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor']).then((data) => {
+    chrome.storage.local.get(['userLevel', 'isEnabled', 'underlineColor', 'currentLevelOnly']).then((data) => {
       sendResponse({
         ok: true,
         userLevel: data.userLevel || DEFAULT_LEVEL,
         isEnabled: data.isEnabled !== false,
-        underlineColor: data.underlineColor || DEFAULT_UNDERLINE_COLOR
+        underlineColor: data.underlineColor || DEFAULT_UNDERLINE_COLOR,
+        currentLevelOnly: data.currentLevelOnly === true
       });
     });
     return true;
@@ -65,6 +68,7 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     if (message.userLevel !== undefined) updates.userLevel = message.userLevel;
     if (message.isEnabled !== undefined) updates.isEnabled = message.isEnabled;
     if (message.underlineColor !== undefined) updates.underlineColor = message.underlineColor;
+    if (message.currentLevelOnly !== undefined) updates.currentLevelOnly = message.currentLevelOnly;
     chrome.storage.local.set(updates).then(() => sendResponse({ ok: true }));
     return true;
   }

@@ -16,6 +16,26 @@
 
   <main>
     <section class="section">
+      <div class="status-row">
+        <span id="statusText">是否打开功能</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggleSwitch" checked>
+          <span class="toggle-switch-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="status-row">
+        <span>仅当前等级</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="levelOnlySwitch">
+          <span class="toggle-switch-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="drawer-row">
         <label class="drawer-label" for="levelSelect">翻译等级</label>
         <select id="levelSelect" class="select">
@@ -37,16 +57,6 @@
       </div>
       <div class="color-preview">
         预览：<span class="preview-sample" id="colorPreview">apple</span>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="status-row">
-        <span id="statusText">是否打开功能</span>
-        <label class="toggle-switch">
-          <input type="checkbox" id="toggleSwitch" checked>
-          <span class="toggle-switch-slider"></span>
-        </label>
       </div>
     </section>
 
