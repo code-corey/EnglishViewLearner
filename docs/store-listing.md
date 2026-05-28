@@ -1,5 +1,7 @@
 # Chrome 网上应用店 — 上架素材
 
+> 图片预览见仓库首页 [README.md](../README.md#预览)。本文档提供商店表单文案与隐私政策链接。
+
 ## 隐私政策 URL
 
 启用 GitHub Pages 后，可使用：
@@ -63,85 +65,25 @@ https://github.com/code-corey/EnglishViewLearner
 
 ## 截图与宣传图
 
-商店素材位于 `pic/store/`；**可直接上传 Google 商店的文件**在 `pic/store/upload/`。
+**预览：** 见 [README — 预览](../README.md#预览)
 
-生成/更新素材：
+可直接上传 Google 商店的文件位于 `pic/store/upload/`：
+
+| 表单字段 | 文件 |
+|---------|------|
+| 商店图标 128×128 | [store-icon-128x128.png](../pic/store/upload/store-icon-128x128.png) |
+| 屏幕截图 | [screenshot-1-page-1280x800.jpg](../pic/store/upload/screenshot-1-page-1280x800.jpg) · [screenshot-2-popup](../pic/store/upload/screenshot-2-popup-1280x800.jpg) · [screenshot-3-panel](../pic/store/upload/screenshot-3-panel-1280x800.jpg) |
+| 小型宣传图 440×280 | [promo-small-440x280.jpg](../pic/store/upload/promo-small-440x280.jpg) |
+| 顶部宣传图 1400×560 | [promo-marquee-1400x560.jpg](../pic/store/upload/promo-marquee-1400x560.jpg) |
+
+生成/更新：
 
 ```powershell
 python extension/scripts/generate_promo.py
 python extension/scripts/export_store_uploads.py
 ```
 
-### 上传到 Chrome 网上应用店（对照表单）
-
-| 表单字段 | 上传文件 |
-|---------|---------|
-| 商店图标 128×128 | `pic/store/upload/store-icon-128x128.png` |
-| 屏幕截图 1280×800（1～3 张） | `screenshot-1-page-1280x800.jpg`（网页效果） |
-| | `screenshot-2-popup-1280x800.jpg`（弹窗设置） |
-| | `screenshot-3-panel-1280x800.jpg`（悬浮抽屉） |
-| 小型宣传图块 440×280 | `pic/store/upload/promo-small-440x280.jpg` |
-| 顶部宣传图块 1400×560 | `pic/store/upload/promo-marquee-1400x560.jpg` |
-
-均为 **无透明通道** 的 JPEG/PNG，符合商店「24 位 PNG / JPEG」要求。
-
----
-
-### 商店图标（128×128）
-
-![商店图标 128x128](../pic/store/upload/store-icon-128x128.png)
-
-路径：`pic/store/upload/store-icon-128x128.png`
-
----
-
-### 屏幕截图（1280×800）
-
-**1. 网页替换效果**
-
-![屏幕截图：网页替换效果](../pic/store/upload/screenshot-1-page-1280x800.jpg)
-
-路径：`pic/store/upload/screenshot-1-page-1280x800.jpg`
-
-**2. 弹窗设置**
-
-![屏幕截图：弹窗设置](../pic/store/upload/screenshot-2-popup-1280x800.jpg)
-
-路径：`pic/store/upload/screenshot-2-popup-1280x800.jpg`
-
-**3. 悬浮抽屉**
-
-![屏幕截图：悬浮抽屉](../pic/store/upload/screenshot-3-panel-1280x800.jpg)
-
-路径：`pic/store/upload/screenshot-3-panel-1280x800.jpg`
-
----
-
-### 小型宣传图块（440×280）
-
-![小型宣传图块 440x280](../pic/store/upload/promo-small-440x280.jpg)
-
-路径：`pic/store/upload/promo-small-440x280.jpg`
-
----
-
-### 顶部宣传图块（1400×560）
-
-![顶部宣传图块 1400x560](../pic/store/upload/promo-marquee-1400x560.jpg)
-
-路径：`pic/store/upload/promo-marquee-1400x560.jpg`
-
----
-
-### 源文件（含透明，仅供编辑）
-
-| 文件 | 用途 | 预览 |
-|------|------|------|
-| `screenshot-1-page.png` | 网页替换效果 | ![](../pic/store/screenshot-1-page.png) |
-| `screenshot-2-popup.png` | 弹窗设置 | ![](../pic/store/screenshot-2-popup.png) |
-| `screenshot-3-panel.png` | 悬浮抽屉 | ![](../pic/store/screenshot-3-panel.png) |
-| `promo-tile-440x280.png` | 小宣传图 | ![](../pic/store/promo-tile-440x280.png) |
-| `promo-marquee-1400x560.png` | 大宣传图 | ![](../pic/store/promo-marquee-1400x560.png) |
+编辑用源文件（含透明通道）在 `pic/store/`：`screenshot-*.png`、`promo-*.png`
 
 ---
 
