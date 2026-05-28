@@ -22,6 +22,17 @@ https://code-corey.github.io/EnglishViewLearner/privacy.html
 
 ---
 
+### GitHub 仓库 About（简介）
+
+```
+沉浸式学习英语 — Chrome/Edge 扩展：按 CEFR 等级在中文网页中替换英文词汇，本地词库离线，悬停查看中文原文。
+```
+
+- **Website：** https://code-corey.github.io/EnglishViewLearner/privacy.html  
+- **Topics：** `chrome-extension` `english-learning` `cefr` `browser-extension` `education`
+
+---
+
 ## 商店文案（可直接复制）
 
 ### 名称
